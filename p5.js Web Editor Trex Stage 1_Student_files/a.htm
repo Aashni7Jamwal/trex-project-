@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script src="a_data/p5_003.js" crossorigin=""></script>
+    <script src="a_data/p5.js" crossorigin=""></script>
+    <script src="a_data/p5_002.js" crossorigin=""></script>
+<script src="a_data/25d5c732-104f-4489-85a7-d7de23fc60d1.js" crossorigin=""></script>
+    
+    <meta charset="utf-8">
+
+  <!-- base href="https://editor.p5js.org//" --><style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+</style><script src="a_data/previewScripts.js"></script><style data-emotion=""></style><script>
+    function getScriptOff(line) {
+      var offs = [[56,"sketch"]];
+      var l = 0;
+      var file = '';
+      for (var i=0; i<offs.length; i++) {
+        var n = offs[i][0];
+        if (n < line && n > l) {
+          l = n;
+          file = offs[i][1];
+        }
+      }
+      return [line - l, file];
+    }
+    // catch reference errors, via http://stackoverflow.com/a/12747364/2994108
+    window.onerror = function (msg, url, lineNumber, columnNo, error) {
+        var string = msg.toLowerCase();
+        var substring = "script error";
+        var data = {};
+        if (url.match(/^(http:\/\/|https:\/\/)/) !== null && error.stack){
+          var errorNum = error.stack.split('about:srcdoc:')[1].split(':')[0];
+          var fileInfo = getScriptOff(errorNum);
+          data = msg + ' (' + fileInfo[1] + ': line ' + fileInfo[0] + ')';
+        } else {
+          var fileInfo = getScriptOff(lineNumber);
+          data = msg + ' (' + fileInfo[1] + ': line ' + fileInfo[0] + ')';
+        }
+        window.parent.postMessage([{
+          log: [{
+            method: 'error',
+            data: [data],
+            id: Date.now().toString()
+          }],
+          source: fileInfo[1]
+        }], '*');
+      return false;
+    };
+  </script></head>
+  <body>
+      <script data-tag="@fs-sketch.js">var trexImage, groundImage;
+var trex, ground;
+
+
+function preload() {
+  trexImage = loadAnimation("https://assets.editor.p5js.org/5c5bc37c07d9ce001edcb109/ad3f6cab-f28c-4b3b-b9ab-564b42ab537b.png", "trex2.png", "https://assets.editor.p5js.org/5c5bc37c07d9ce001edcb109/7882ab9d-8cb1-4850-b71b-2c21882d3f68.png");
+  groundImage = loadImage("https://assets.editor.p5js.org/5c5bc37c07d9ce001edcb109/86828a1c-5dad-4986-beee-9473553d2f68.png");
+}
+
+function setup() {
+  createCanvas(600, 300);
+  trex=createSprite(100,250);
+  trex.addAnimation(trexImage);
+
+    ground=createSprite(300,280);
+  ground.addImage(groundImage);
+}
+
+function draw() {
+  background("white");
+  drawSprites();
+}</script>
+  
+
+<div style="position: absolute;" id="p5_loading">Loading...</div></body></html>
